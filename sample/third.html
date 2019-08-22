@@ -2,77 +2,115 @@
 <html>
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>reveal.js</title>
+	<title>reveal.js</title>
 
-    <link rel="stylesheet" href="https://wc.umm.rocks/wp-content/plugins/reveal-for-wp/reveal-js/css/reset.css">
-    <link rel="stylesheet" href="https://wc.umm.rocks/wp-content/plugins/reveal-for-wp/reveal-js/css/reveal.css">
-    <link rel="stylesheet" href="https://wc.umm.rocks/wp-content/plugins/reveal-for-wp/reveal-js/css/theme/black.css">
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/reveal.css">
+	<link rel="stylesheet" href="../css/theme/black.css">
 
-    <!-- Theme used for syntax highlighting of code -->
-    <link rel="stylesheet" href="https://wc.umm.rocks/wp-content/plugins/reveal-for-wp/reveal-js/lib/css/monokai.css">
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="../lib/css/monokai.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+	<style type="text/css">
+		
+	/* make keyframes that tell the start state and the end state of our object */
+	@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+	@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+	@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
 
-    <!-- Printing and PDF exports -->
-    <script>
-      var link = document.createElement( 'link' );
-      link.rel = 'stylesheet';
-      link.type = 'text/css';
-      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-      document.getElementsByTagName( 'head' )[0].appendChild( link );
-    </script>
-  </head>
-  <body>
-    <div class="reveal">
-      <div class="slides">
-        <section>Slide 1</section>
-        <section>Slide 2</section>
-      </div>
-    </div>
+	.is-style-phader {
+		opacity:0;  /* make things invisible upon start */
+		-webkit-animation:fadeIn ease-in 1;  /* call our keyframe named fadeIn, use animation ease-in and repeat it only 1 time */
+		-moz-animation:fadeIn ease-in 1;
+		animation:fadeIn ease-in 1;
 
+		-webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+		-moz-animation-fill-mode:forwards;
+		animation-fill-mode:forwards;
+
+		-webkit-animation-duration:7s;
+		-moz-animation-duration:7s;
+		animation-duration:7s;
+	}
+
+	.is-style-phader.one {
+		-webkit-animation-delay: 8s;
+		-moz-animation-delay: 8s;
+		animation-delay: 8s;
+	}
+	</style>
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	</script>
+</head>
 <body>
-This code requires your CSS to include span { display: inline-block; } (otherwise, some animations do not apply on span element).
+	<div class="reveal">
+		<div class="slides">
+			<section>Slide 1</section>
+			<section>Slide 2
+				<p>This code requires your CSS to include span { display: inline-block; } (otherwise, some animations do not apply on span element).</p>
 
-For example:
+				<p>For example:</p>
+			</section>
+			<section>
+				<h3 data-animate="bounce slower">Animations are supported too!</h3>
+				See <a href="https://github.com/daneden/animate.css">Animate.css</a>.
+				<div class="fragment">
+					<span data-animate="shake">On</span>
+					<span data-animate="wobble">fragments</span>
+					<span data-animate="fadeInLeft">too!</span>
+				</div>
+				<div>
+					<p class="fragment" data-animate="fadeInLeft">
+						Speed can be controlled with <span data-delay="2" data-animate="bounce" class="infinite">.infinite</span> or <span data-animate="bounce" data-delay="2" data-duration="5">data-duration</span>.
+					</p>
+					<p class="fragment" data-animate="fadeInRight">
+						Animations can be delayed with <span data-delay="2" data-animate="fadeIn"><span data-delay="3" data-animate="bounce">data-delay</span>!</span>
+					</p>
+				</div>
+			</section>
 
-<section>
-  <h3 data-animate="bounce slower">Animations are supported too!</h3>
-  See <a href="https://github.com/daneden/animate.css">Animate.css</a>.
-  <div class="fragment">
-    <span data-animate="shake">On</span>
-    <span data-animate="wobble">fragments</span>
-    <span data-animate="fadeInLeft">too!</span>
-  </div>
-  <div>
-    <p class="fragment" data-animate="fadeInLeft">
-      Speed can be controlled with <span data-delay="2" data-animate="bounce" class="infinite">.infinite</span> or <span data-animate="bounce" data-delay="2" data-duration="5">data-duration</span>.
-    </p>
-    <p class="fragment" data-animate="fadeInRight">
-      Animations can be delayed with <span data-delay="2" data-animate="fadeIn"><span data-delay="3" data-animate="bounce">data-delay</span>!</span>
-    </p>
-  </div>
-</section>
+			<section>
+				<h3 data-animate="bounce slower">Delayed Animation Fragment</h3>
+				<div>
+					<p class="fragment" data-animate="fadeInLeft">
+						<span data-animate="fadeIn" data-delay="2" data-duration="5">
+							<img src="images/beige-bard.png" />
+						</span>
+					</p>
+				</div>
+			</section>
+		</div>
+	</div>
 
 
-<script type="text/javascript">
+
+	<script type="text/javascript">
 // Set animation delay if data-delay is specified
 Reveal.addEventListener('ready', function ( event ) {
-  $('*[data-delay]').each( function () { 
-    var delay = $(this).attr("data-delay");
-      $(this).css("-webkit-animation-delay", delay+"s"); 
-      $(this).css("animation-delay", delay+"s"); 
-  });
+	$('*[data-delay]').each( function () { 
+		var delay = $(this).attr("data-delay");
+		$(this).css("-webkit-animation-delay", delay+"s"); 
+		$(this).css("animation-delay", delay+"s"); 
+	});
 });
 
 // Set animation duration if data-duration is specified
 Reveal.addEventListener('ready', function ( event ) {
-  $('*[data-duration]').each( function () { 
-    var duration = $(this).attr("data-duration");
-      $(this).css("-webkit-animation-duration", duration+"s"); 
-      $(this).css("animation-duration", duration+"s"); 
-  });
+	$('*[data-duration]').each( function () { 
+		var duration = $(this).attr("data-duration");
+		$(this).css("-webkit-animation-duration", duration+"s"); 
+		$(this).css("animation-duration", duration+"s"); 
+	});
 });
 
 // Animate items that are not in a fragment
@@ -81,54 +119,56 @@ Reveal.addEventListener('slidechanged', function( event ) {
   var filter = '*[data-animate]:not(.fragment):not(.fragment *)';
   
   $(event.currentSlide).find(filter).each( function () {
-    $(this).addClass('animated');
-    $(this).addClass($(this).attr('data-animate'));
+  	$(this).addClass('animated');
+  	$(this).addClass($(this).attr('data-animate'));
   });		
   $(event.previousSlide).find(filter).each( function () {
-    $(this).removeClass('animated');
-    $(this).removeClass($(this).attr('data-animate'));
+  	$(this).removeClass('animated');
+  	$(this).removeClass($(this).attr('data-animate'));
   });		
 });
 
 // Animate fragments
 Reveal.addEventListener('fragmentshown', function( event ) {
-  function loop(i, el) { 
-      if ($(el).attr('data-animate')) {
-        $(el).addClass('animated');
-        $(el).addClass($(el).attr('data-animate'));
-      }
-      $.each($(el).children().not('.fragment'), loop);
-  };
-  $.each(event.fragments, loop);
+	function loop(i, el) { 
+		if ($(el).attr('data-animate')) {
+			$(el).addClass('animated');
+			$(el).addClass($(el).attr('data-animate'));
+		}
+		$.each($(el).children().not('.fragment'), loop);
+	};
+	$.each(event.fragments, loop);
 });
 
 // Make the animation runnable again if fragment is hidden
 Reveal.addEventListener('fragmenthidden', function( event ) {	  
-  function loop(i, el) { 
-      if ($(el).attr('data-animate')) {
-        $(el).removeClass('animated');
-        $(el).removeClass($(el).attr('data-animate'));
-      }
-      $.each($(el).children().not('.fragment'), loop);
-  };
-  $.each(event.fragments, loop);
+	function loop(i, el) { 
+		if ($(el).attr('data-animate')) {
+			$(el).removeClass('animated');
+			$(el).removeClass($(el).attr('data-animate'));
+		}
+		$.each($(el).children().not('.fragment'), loop);
+	};
+	$.each(event.fragments, loop);
 });
 </script>
 
-    <script src="https://wc.umm.rocks/wp-content/plugins/reveal-for-wp/reveal-js/js/reveal.js"></script>
+<script src="../js/reveal.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/some-animate.js"></script>
 
-    <script>
+<script>
       // More info about config & dependencies:
       // - https://github.com/hakimel/reveal.js#configuration
       // - https://github.com/hakimel/reveal.js#dependencies
       Reveal.initialize({
-        dependencies: [
-          { src: 'https://wc.umm.rocks/wp-content/plugins/reveal-for-wp/reveal-js/plugin/markdown/marked.js' },
-          { src: 'https://wc.umm.rocks/wp-content/plugins/reveal-for-wp/reveal-js/plugin/markdown/markdown.js' },
-          { src: 'https://wc.umm.rocks/wp-content/plugins/reveal-for-wp/reveal-js/plugin/notes/notes.js', async: true },
-          { src: 'https://wc.umm.rocks/wp-content/plugins/reveal-for-wp/reveal-js/plugin/highlight/highlight.js', async: true }
-        ]
+      	dependencies: [
+      	{ src: '../plugin/markdown/marked.js' },
+      	{ src: '../plugin/markdown/markdown.js' },
+      	{ src: '../plugin/notes/notes.js', async: true },
+      	{ src: '../plugin/highlight/highlight.js', async: true }
+      	]
       });
-    </script>
-  </body>
+  </script>
+</body>
 </html>
